@@ -172,6 +172,7 @@ RUN echo @testing http://nl.alpinelinux.org/alpine/edge/testing >> /etc/apk/repo
     supervisor \
     curl \
     nano \
+    tzdata \
     libcurl \
     git \
     python \
@@ -216,7 +217,10 @@ RUN echo @testing http://nl.alpinelinux.org/alpine/edge/testing >> /etc/apk/repo
     pip install -U pip && \
     pip install -U certbot && \
     mkdir -p /etc/letsencrypt/webrootauth && \
-    apk del gcc musl-dev linux-headers libffi-dev augeas-dev python-dev make autoconf
+    apk del gcc musl-dev linux-headers libffi-dev augeas-dev python-dev make autoconf && \
+    cp /usr/share/zoneinfo/Europe/Moscow /etc/localtime && \
+    echo "Europe/Moscow" > /etc/timezone && \
+    apk del tzdata
 #    ln -s /usr/bin/php7 /usr/bin/php
 
 ADD conf/supervisord.conf /etc/supervisord.conf
