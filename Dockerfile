@@ -1,9 +1,9 @@
-FROM php:7.1.12-fpm-alpine
+FROM php:7.1.26-fpm-alpine3.8
 
 MAINTAINER Sergey Kardashov <krosh961@yandex.ru>
 
-LABEL org.label-schema.name="nginx-php-fpm-7.1-alpine3.7" \
-      org.label-schema.description="This is a micro docker container based on Alpine 3.7, Nginx && PHP-FPM-7.1" \
+LABEL org.label-schema.name="nginx-php-fpm-7.1-alpine3.8" \
+      org.label-schema.description="This is a micro docker container based on Alpine 3.8, Nginx && PHP-FPM-7.1" \
       org.label-schema.url="https://hub.docker.com/r/krosh961/nginx-php-fpm7/" \
       org.label-schema.vcs-url="https://github.com/krosh961/nginx-php-fpm7.git"
 
