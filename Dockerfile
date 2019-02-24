@@ -174,7 +174,6 @@ RUN echo @testing http://nl.alpinelinux.org/alpine/edge/testing >> /etc/apk/repo
     supervisor \
     curl \
     nano \
-    imagemagick \
     jpegoptim \
     optipng \
     pngquant \
