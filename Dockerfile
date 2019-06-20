@@ -19,7 +19,7 @@ ENV LUAJIT_INC=/usr/include/luajit-2.0
 
 # resolves #166
 ENV LD_PRELOAD /usr/lib/preloadable_libiconv.so php
-RUN apk add --no-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing gnu-libiconv
+RUN apk add -U --no-cache -t .wodby-php-edge-run-deps -X http://dl-cdn.alpinelinux.org/alpine/edge/testing/
 
 RUN GPG_KEYS=B0F4253373F8F6F510D42178520A9993A1C052F8 \
   && CONFIG="\
@@ -207,7 +207,7 @@ RUN echo @testing http://nl.alpinelinux.org/alpine/edge/testing >> /etc/apk/repo
       --with-png-dir=/usr/include/ \
       --with-jpeg-dir=/usr/include/ && \
     #curl iconv session
-    docker-php-ext-install pdo_mysql pdo_sqlite bcmath mysqli mcrypt gd exif intl xsl json soap dom zip opcache && \
+    docker-php-ext-install pdo_mysql pdo_sqlite mysqli mcrypt bcmath gd exif intl xsl json soap dom zip opcache && \
     pecl install xdebug && \
     docker-php-source delete && \
     mkdir -p /etc/nginx && \
